@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Vue小实例</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<div>
+				<h1>Vue实现信息录入：</h1>
+				<fieldset class="field">
+					<legend>
+						<h3>添加信息</h3>
+					</legend>
+					<div>
+						<span>姓名：</span>
+						<input type="text" placeholder="请输入姓名" v-model="adinfo.name" />
+					</div>
+					<div>
+						<span>年龄：</span>
+						<input type="text" placeholder="请输入年龄" v-model="adinfo.age" />
+					</div>
+					<div>
+						<span>性别：</span>
+						<select v-model="adinfo.sex">
+							<option value="男">男</option>
+							<option value="女">女</option>
+						</select>
+					</div>
+					<div>
+						<span>手机：</span>
+						<input type="text" placeholder="请输入手机号码" v-model="adinfo.phone" />
+					</div>
+					<button class="add-btn" @click="addInfo">添加</button>
+				</fieldset>
+			</div>
+			<h2>统计结果：</h2>
+			<div class="tb-box">
+				<table border="1" class="tb">
+					<tr>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>性别</th>
+						<th>手机</th>
+						<th>删除</th>
+					</tr>
+					<tr v-for="(x,i) in info">
+						<td v-for="item in info[i]">{{item}}</td>
+						<td><button class="rm-btn" @click="rmInfo(i)">删除</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+
+</html>
